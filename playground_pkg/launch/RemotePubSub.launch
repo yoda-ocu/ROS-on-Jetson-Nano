@@ -1,0 +1,9 @@
+<launch>
+    <arg name="isPublisher" default="true"/>
+    <group if="$(arg isPublisher)">
+        <node name="publisher" pkg="playground_pkg" type="talker.py" output="screen" />
+    </group>
+    <group unless="$(arg isPublisher)">
+        <node name="subscriber" pkg="playground_pkg" type="listener.py" output="screen" />
+    </group>
+</launch>
